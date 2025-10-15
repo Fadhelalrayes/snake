@@ -9,7 +9,7 @@
             font-family: 'Cairo', sans-serif;
             margin: 0;
             padding: 0;
-            background: #fff;
+            background: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,7 +18,7 @@
 
         .cv-container {
             width: 210mm; /* حجم A4 */
-            height: 297mm; /* حجم A4 */
+            min-height: 297mm; /* حجم A4 */
             background: #ffffff;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             padding: 15mm;
@@ -111,6 +111,7 @@
             font-size: 14px;
             font-weight: bold;
             transition: background 0.3s, transform 0.2s;
+            z-index: 1000;
         }
 
         .print-btn:hover {
@@ -126,17 +127,25 @@
                 box-shadow: none;
                 margin: 0;
                 padding: 10mm;
-                width: 210mm;
-                height: 297mm;
-                page-break-after: avoid; /* منع الانقسام إلى صفحات متعددة */
+                width: 100%;
+                height: 100%;
             }
             .print-btn {
                 display: none;
             }
             .cv-header {
-                background: none;
-                color: #000;
-                border-bottom: 2px solid #000;
+                background: linear-gradient(to left, #0288d1, #4fc3f7) !important;
+                -webkit-print-color-adjust: exact; /* للحفاظ على الألوان عند الطباعة */
+                color: #fff !important;
+            }
+            .cv-section h2 {
+                color: #0288d1 !important;
+            }
+            .cv-section h2::after {
+                background: #0288d1 !important;
+            }
+            .cv-section ul li::before {
+                color: #0288d1 !important;
             }
             @page {
                 size: A4;
@@ -144,11 +153,16 @@
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
+            body {
+                align-items: flex-start;
+            }
             .cv-container {
                 width: 100%;
+                min-height: 100vh;
                 height: auto;
                 padding: 10px;
+                box-shadow: none;
             }
             .cv-header h1 {
                 font-size: 20px;
@@ -162,6 +176,8 @@
             .print-btn {
                 padding: 8px 15px;
                 font-size: 12px;
+                top: 10px;
+                left: 10px;
             }
         }
     </style>
@@ -178,7 +194,7 @@
         <div class="cv-section">
             <h2>المؤهل الدراسي</h2>
             <p>بكلوريوس في القانون</p>
-            <p>جامعة [اسم الجامعة]، [المدينة] | 2025</p>
+            <p>سنة التخرج: 2025</p>
         </div>
 
         <div class="cv-section">
