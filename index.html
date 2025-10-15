@@ -3,137 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرة ذاتية - دعاء سعدون</title>
+    <title>سيرة ذاتية احترافية - دعاء سعدون</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        :root {
+            --primary-color: #2c3e50; /* أزرق داكن (Navy) */
+            --secondary-color: #3498db; /* أزرق أفتح */
+            --light-gray: #ecf0f1;
+            --dark-gray: #34495e;
+            --text-color: #555;
+        }
+
         body {
             font-family: 'Cairo', sans-serif;
             margin: 0;
-            padding: 0;
-            background: #f4f4f4;
+            padding: 20px 0;
+            background: #e8e8e8;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
         }
 
         .cv-container {
-            width: 210mm; /* A4 width */
-            height: 297mm; /* A4 height */
-            background: #ffffff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 15mm;
-            box-sizing: border-box;
+            width: 210mm;
+            height: 297mm;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* --- العمود الأيسر (الشخصي) --- */
+        .left-column {
+            background: var(--primary-color);
+            color: #fff;
+            width: 35%;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
-            position: relative;
+            align-items: center;
         }
 
-        .cv-header {
-            text-align: center;
-            border-bottom: 2px solid #0288d1;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            background: linear-gradient(to left, #0288d1, #4fc3f7);
-            color: #fff;
-            border-radius: 10px 10px 0 0;
-            padding: 15px;
+        .profile-pic-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #fff;
+            padding: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
 
-        .cv-header h1 {
-            font-size: 24px;
-            margin: 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .cv-header p {
-            font-size: 14px;
-            margin: 5px 0;
-            opacity: 0.9;
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
         }
         
-        /* --- تنسيق رقم الهاتف --- */
-        .phone-number {
-            direction: ltr;
-            unicode-bidi: bidi-override;
-            text-align: center;
-        }
-
-        .cv-section {
-            margin: 10px 0;
-        }
-
-        /* --- إطار أنيق للمقدمة --- */
-        .profile-section {
-            background-color: #f8f9fa;
-            border-right: 4px solid #4fc3f7;
-            padding: 12px 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-
-        .cv-section h2 {
+        .left-column h2 {
             font-size: 18px;
-            color: #0288d1;
-            border-bottom: 2px solid #e0f7fa;
+            text-align: center;
+            border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 8px;
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        /* إخفاء الخط السفلي لعنوان المقدمة */
-        .profile-section h2 {
-            border-bottom: none;
-            margin-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            width: 100%;
         }
 
-        .cv-section h2::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 2px;
-            background: #0288d1;
-            bottom: -2px;
-            right: 0;
-        }
-        
-        .profile-section h2::after {
-            display: none; /* إخفاء الخط الزخرفي للمقدمة */
-        }
-
-        .cv-section p {
-            color: #333;
+        .contact-info p {
+            margin: 10px 0;
             font-size: 14px;
             line-height: 1.6;
-            text-align: justify;
-            text-justify: inter-word;
         }
         
-        .cv-section ul {
-            list-style-type: none;
-            padding-right: 15px;
+        .contact-info .phone-number {
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            text-align: right;
+        }
+
+        .contact-info i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .languages ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .languages li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .languages .lang-level {
+            background: #56687a;
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .languages .level-fill {
+            background: var(--secondary-color);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* --- العمود الأيمن (الرئيسي) --- */
+        .right-column {
+            width: 65%;
+            padding: 40px 30px;
+            overflow-y: auto;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
             margin: 0;
         }
 
-        .cv-section ul li {
-            margin-bottom: 8px;
+        .header h3 {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--secondary-color);
+            margin: 5px 0 0;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            color: #fff;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            padding: 8px;
+            font-size: 16px;
+            margin-left: 12px;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .section p, .section li {
+            font-size: 14px;
+            color: var(--text-color);
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skills-list li {
             position: relative;
             padding-right: 20px;
-            font-size: 14px;
+            margin-bottom: 10px;
         }
-
-        .cv-section ul li::before {
-            content: '✔';
+        
+        .skills-list li::before {
+            content: '\f00c'; /* Font Awesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
             position: absolute;
             right: 0;
-            color: #0288d1;
-            font-size: 14px;
+            top: 4px;
+            color: var(--secondary-color);
         }
 
+        /* --- Print Styles --- */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+            }
+            .print-btn { display: none; }
+            
+            /* Ensure colors are printed */
+            .left-column, .section-title i, .lang-level .level-fill {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+        
         .print-btn {
             position: fixed;
             top: 20px;
             left: 20px;
-            background: #0288d1;
+            background: var(--primary-color);
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -141,105 +234,70 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
             z-index: 1000;
-        }
-
-        .print-btn:hover {
-            background: #01579b;
-            transform: scale(1.05);
-        }
-
-        /* --- Print Styles --- */
-        @media print {
-            html, body {
-                width: 210mm;
-                height: 297mm;
-                margin: 0;
-                padding: 0;
-                background: #fff;
-            }
-            .cv-container {
-                box-shadow: none;
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                padding: 15mm;
-                page-break-after: avoid;
-            }
-            .print-btn { display: none; }
-            .cv-header {
-                background: linear-gradient(to left, #0288d1, #4fc3f7) !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-                color: #fff !important;
-            }
-            .profile-section {
-                border-right-color: #4fc3f7 !important;
-                background-color: #f8f9fa !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
-            .cv-section h2, .cv-section ul li::before { color: #0288d1 !important; }
-            .cv-section h2::after { background: #0288d1 !important; }
-            @page { size: A4; margin: 0; }
-        }
-
-        /* --- Responsive Styles --- */
-        @media (max-width: 800px) {
-            body { align-items: flex-start; }
-            .cv-container {
-                width: 100%;
-                height: auto;
-                min-height: 100vh;
-                padding: 10px;
-                box-shadow: none;
-            }
-            .cv-header h1 { font-size: 20px; }
-            .cv-section h2 { font-size: 16px; }
-            .cv-section p, .cv-section ul li { font-size: 13px; }
-            .print-btn { padding: 8px 15px; font-size: 12px; top: 10px; left: 10px; }
         }
     </style>
 </head>
 <body>
     <button class="print-btn" onclick="window.print()">تحميل/طباعة السيرة الذاتية</button>
     <div class="cv-container">
-        <div class="cv-header">
-            <h1>دعاء سعدون</h1>
-            <p>محامية | 26 عامًا</p>
-            <p class="phone-number">+964 780 684 5147</p>
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="profile-pic-container">
+                <!-- يمكنك وضع رابط صورة شخصية هنا -->
+                <img src="https://via.placeholder.com/140" alt="صورة شخصية">
+            </div>
+            
+            <div class="contact-info">
+                <h2>معلومات التواصل</h2>
+                <p><i class="fas fa-phone"></i><span class="phone-number">+964 780 684 5147</span></p>
+                <p><i class="fas fa-envelope"></i><span>your.email@example.com</span></p>
+                <p><i class="fas fa-map-marker-alt"></i><span>بغداد، العراق (مثال)</span></p>
+            </div>
+
+            <div class="languages">
+                <h2>اللغات</h2>
+                <ul>
+                    <li>
+                        العربية: اللغة الأم
+                        <div class="lang-level"><div class="level-fill" style="width: 100%;"></div></div>
+                    </li>
+                    <li>
+                        الإنجليزية: مستوى متقدم
+                        <div class="lang-level"><div class="level-fill" style="width: 85%;"></div></div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="cv-section profile-section">
-            <h2>الملف الشخصي</h2>
-            <p>محامية طموحة وشغوفة بتحقيق العدالة، أمتلك أساسًا أكاديميًا متينًا في القانون. أسعى لتطبيق معرفتي ومهاراتي التحليلية للمساهمة في حل القضايا القانونية المعقدة، مع التزام كامل بأخلاقيات المهنة والتطوير المستمر.</p>
-        </div>
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="header">
+                <h1>دعاء سعدون</h1>
+                <h3>محامية طموحة</h3>
+            </div>
 
-        <div class="cv-section">
-            <h2>المؤهل الدراسي</h2>
-            <p>بكالوريوس في القانون | سنة التخرج: 2025</p>
-        </div>
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-user"></i>الملف الشخصي</h2>
+                <p>محامية شغوفة بتحقيق العدالة، أمتلك أساسًا أكاديميًا متينًا في القانون. أسعى لتطبيق معرفتي ومهاراتي التحليلية للمساهمة في حل القضايا القانونية المعقدة، مع التزام كامل بأخلاقيات المهنة والتطوير المستمر لتحقيق أفضل النتائج.</p>
+            </div>
 
-        <div class="cv-section">
-            <h2>المهارات</h2>
-            <ul>
-                <li>تحليل القضايا القانونية وتقديم استشارات دقيقة.</li>
-                <li>مهارات متقدمة في التواصل الفعال والتفاوض المقنع.</li>
-                <li>قدرة عالية على إدارة الوقت وتنظيم المهام والعمل تحت الضغط.</li>
-                <li>إجادة تامة لاستخدام برامج Microsoft Office وتطبيقاته.</li>
-            </ul>
-        </div>
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i>المؤهل الدراسي</h2>
+                <p><strong>بكالوريوس في القانون</strong> | سنة التخرج: 2025</p>
+            </div>
 
-        <div class="cv-section">
-            <h2>اللغات</h2>
-            <ul>
-                <li>العربية: اللغة الأم</li>
-                <li>الإنجليزية: مستوى متقدم (قراءة وكتابة ومحادثة)</li>
-            </ul>
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-cogs"></i>المهارات</h2>
+                <ul class="skills-list">
+                    <li>تحليل القضايا القانونية وتقديم استشارات دقيقة.</li>
+                    <li>مهارات متقدمة في التواصل الفعال والتفاوض المقنع.</li>
+                    <li>قدرة عالية على إدارة الوقت وتنظيم المهام والعمل تحت الضغط.</li>
+                    <li>إجادة تامة لاستخدام برامج Microsoft Office وتطبيقاته.</li>
+                    <li>البحث القانوني المعمق واستخلاص السوابق القضائية.</li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </body>
 </html>
