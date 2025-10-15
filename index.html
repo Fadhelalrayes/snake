@@ -7,9 +7,9 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,138 +17,168 @@
         }
 
         .cv-container {
-            background: #fff;
-            width: 100%;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            margin: 20px;
+            width: 210mm; /* حجم A4 */
+            height: 297mm; /* حجم A4 */
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 15mm;
+            box-sizing: border-box;
+            overflow: hidden; /* منع التجاوز */
             position: relative;
         }
 
         .cv-header {
             text-align: center;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            border-bottom: 2px solid #0288d1;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            background: linear-gradient(to left, #0288d1, #4fc3f7);
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
         }
 
         .cv-header h1 {
-            font-size: 2.5em;
-            color: #333;
+            font-size: 24px;
             margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .cv-header p {
-            color: #666;
-            font-size: 1.1em;
+            font-size: 14px;
             margin: 5px 0;
+            opacity: 0.9;
         }
 
         .cv-section {
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .cv-section h2 {
-            font-size: 1.8em;
-            color: #007bff;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            font-size: 18px;
+            color: #0288d1;
+            border-bottom: 2px solid #e0f7fa;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .cv-section h2::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: #0288d1;
+            bottom: -2px;
+            right: 0;
         }
 
         .cv-section p, .cv-section ul {
             color: #333;
-            font-size: 1.1em;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         .cv-section ul {
-            list-style-type: square;
-            padding-right: 20px;
+            list-style-type: none;
+            padding-right: 15px;
         }
 
         .cv-section ul li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .cv-section ul li::before {
+            content: '✔';
+            position: absolute;
+            right: 0;
+            color: #0288d1;
+            font-size: 14px;
         }
 
         .print-btn {
             position: fixed;
             top: 20px;
             left: 20px;
-            background: #007bff;
+            background: #0288d1;
             color: #fff;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1em;
-            transition: background 0.3s;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
         }
 
         .print-btn:hover {
-            background: #0056b3;
+            background: #01579b;
+            transform: scale(1.05);
         }
 
         @media print {
-            .print-btn {
-                display: none;
+            body {
+                background: none;
             }
             .cv-container {
                 box-shadow: none;
                 margin: 0;
-                padding: 10px;
+                padding: 10mm;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: avoid; /* منع الانقسام إلى صفحات متعددة */
             }
-            body {
+            .print-btn {
+                display: none;
+            }
+            .cv-header {
                 background: none;
+                color: #000;
+                border-bottom: 2px solid #000;
+            }
+            @page {
+                size: A4;
+                margin: 0;
             }
         }
 
         @media (max-width: 600px) {
             .cv-container {
-                padding: 20px;
+                width: 100%;
+                height: auto;
+                padding: 10px;
             }
             .cv-header h1 {
-                font-size: 2em;
+                font-size: 20px;
             }
             .cv-section h2 {
-                font-size: 1.5em;
+                font-size: 16px;
+            }
+            .cv-section p, .cv-section ul {
+                font-size: 12px;
+            }
+            .print-btn {
+                padding: 8px 15px;
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
-    <button class="print-btn" onclick="window.print()">طباعة السيرة الذاتية</button>
+    <button class="print-btn" onclick="window.print()">تحميل/طباعة السيرة الذاتية</button>
     <div class="cv-container">
         <div class="cv-header">
             <h1>دعاء سعدون</h1>
             <p>محامية | 26 عامًا</p>
-            <p>رقم الهاتف: 1234567890 | البريد الإلكتروني: doaa.sadoun@example.com</p>
+            <p>رقم الهاتف: +964 780 684 5147</p>
         </div>
 
         <div class="cv-section">
             <h2>المؤهل الدراسي</h2>
             <p>بكلوريوس في القانون</p>
-            <p>جامعة [اسم الجامعة]، [المدينة] | [سنة التخرج]</p>
-        </div>
-
-        <div class="cv-section">
-            <h2>الخبرات العملية</h2>
-            <ul>
-                <li>محامية متدربة في مكتب [اسم المكتب]، [المدينة] | [الفترة الزمنية]
-                    <ul>
-                        <li>تقديم الاستشارات القانونية للعملاء في قضايا مدنية وتجارية.</li>
-                        <li>إعداد وصياغة العقود والاتفاقيات القانونية.</li>
-                    </ul>
-                </li>
-                <li>مديرة إدارية في [اسم الشركة]، [المدينة] | [الفترة الزمنية]
-                    <ul>
-                        <li>إدارة فريق من [عدد] موظفين لضمان سير العمل بكفاءة.</li>
-                        <li>تنظيم ومتابعة المهام الإدارية اليومية.</li>
-                    </ul>
-                </li>
-            </ul>
+            <p>جامعة [اسم الجامعة]، [المدينة] | 2025</p>
         </div>
 
         <div class="cv-section">
@@ -170,7 +200,6 @@
         </div>
     </div>
 
-    <!-- إضافة خط Cairo من Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </body>
 </html>
