@@ -50,9 +50,25 @@
             margin: 5px 0;
             opacity: 0.9;
         }
+        
+        /* --- تنسيق رقم الهاتف --- */
+        .phone-number {
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            text-align: center;
+        }
 
         .cv-section {
             margin: 10px 0;
+        }
+
+        /* --- إطار أنيق للمقدمة --- */
+        .profile-section {
+            background-color: #f8f9fa;
+            border-right: 4px solid #4fc3f7;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
         }
 
         .cv-section h2 {
@@ -62,6 +78,12 @@
             padding-bottom: 8px;
             margin-bottom: 10px;
             position: relative;
+        }
+        
+        /* إخفاء الخط السفلي لعنوان المقدمة */
+        .profile-section h2 {
+            border-bottom: none;
+            margin-bottom: 8px;
         }
 
         .cv-section h2::after {
@@ -73,12 +95,15 @@
             bottom: -2px;
             right: 0;
         }
+        
+        .profile-section h2::after {
+            display: none; /* إخفاء الخط الزخرفي للمقدمة */
+        }
 
         .cv-section p {
             color: #333;
             font-size: 14px;
             line-height: 1.6;
-            /* محاذاة النص مثل الكتب */
             text-align: justify;
             text-justify: inter-word;
         }
@@ -86,6 +111,7 @@
         .cv-section ul {
             list-style-type: none;
             padding-right: 15px;
+            margin: 0;
         }
 
         .cv-section ul li {
@@ -141,32 +167,27 @@
                 padding: 15mm;
                 page-break-after: avoid;
             }
-            .print-btn {
-                display: none;
-            }
+            .print-btn { display: none; }
             .cv-header {
                 background: linear-gradient(to left, #0288d1, #4fc3f7) !important;
-                -webkit-print-color-adjust: exact; /* For Chrome/Safari */
-                color-adjust: exact; /* Standard */
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
                 color: #fff !important;
             }
-            .cv-section h2, .cv-section ul li::before {
-                color: #0288d1 !important;
+            .profile-section {
+                border-right-color: #4fc3f7 !important;
+                background-color: #f8f9fa !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
             }
-            .cv-section h2::after {
-                background: #0288d1 !important;
-            }
-            @page {
-                size: A4;
-                margin: 0;
-            }
+            .cv-section h2, .cv-section ul li::before { color: #0288d1 !important; }
+            .cv-section h2::after { background: #0288d1 !important; }
+            @page { size: A4; margin: 0; }
         }
 
         /* --- Responsive Styles --- */
         @media (max-width: 800px) {
-            body {
-                align-items: flex-start;
-            }
+            body { align-items: flex-start; }
             .cv-container {
                 width: 100%;
                 height: auto;
@@ -177,12 +198,7 @@
             .cv-header h1 { font-size: 20px; }
             .cv-section h2 { font-size: 16px; }
             .cv-section p, .cv-section ul li { font-size: 13px; }
-            .print-btn {
-                padding: 8px 15px;
-                font-size: 12px;
-                top: 10px;
-                left: 10px;
-            }
+            .print-btn { padding: 8px 15px; font-size: 12px; top: 10px; left: 10px; }
         }
     </style>
 </head>
@@ -192,10 +208,10 @@
         <div class="cv-header">
             <h1>دعاء سعدون</h1>
             <p>محامية | 26 عامًا</p>
-            <p>رقم الهاتف: +964 780 684 5147</p>
+            <p class="phone-number">+964 780 684 5147</p>
         </div>
 
-        <div class="cv-section">
+        <div class="cv-section profile-section">
             <h2>الملف الشخصي</h2>
             <p>محامية طموحة وشغوفة بتحقيق العدالة، أمتلك أساسًا أكاديميًا متينًا في القانون. أسعى لتطبيق معرفتي ومهاراتي التحليلية للمساهمة في حل القضايا القانونية المعقدة، مع التزام كامل بأخلاقيات المهنة والتطوير المستمر.</p>
         </div>
