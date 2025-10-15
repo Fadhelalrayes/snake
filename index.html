@@ -17,13 +17,14 @@
         }
 
         .cv-container {
-            width: 210mm; /* حجم A4 */
-            min-height: 297mm; /* حجم A4 */
+            width: 210mm; /* A4 width */
+            height: 297mm; /* A4 height */
             background: #ffffff;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             padding: 15mm;
             box-sizing: border-box;
-            overflow: hidden; /* منع التجاوز */
+            display: flex;
+            flex-direction: column;
             position: relative;
         }
 
@@ -51,7 +52,7 @@
         }
 
         .cv-section {
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
         .cv-section h2 {
@@ -73,12 +74,15 @@
             right: 0;
         }
 
-        .cv-section p, .cv-section ul {
+        .cv-section p {
             color: #333;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
+            /* محاذاة النص مثل الكتب */
+            text-align: justify;
+            text-justify: inter-word;
         }
-
+        
         .cv-section ul {
             list-style-type: none;
             padding-right: 15px;
@@ -88,6 +92,7 @@
             margin-bottom: 8px;
             position: relative;
             padding-right: 20px;
+            font-size: 14px;
         }
 
         .cv-section ul li::before {
@@ -119,33 +124,37 @@
             transform: scale(1.05);
         }
 
+        /* --- Print Styles --- */
         @media print {
-            body {
-                background: none;
+            html, body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+                background: #fff;
             }
             .cv-container {
                 box-shadow: none;
                 margin: 0;
-                padding: 10mm;
                 width: 100%;
                 height: 100%;
+                padding: 15mm;
+                page-break-after: avoid;
             }
             .print-btn {
                 display: none;
             }
             .cv-header {
                 background: linear-gradient(to left, #0288d1, #4fc3f7) !important;
-                -webkit-print-color-adjust: exact; /* للحفاظ على الألوان عند الطباعة */
+                -webkit-print-color-adjust: exact; /* For Chrome/Safari */
+                color-adjust: exact; /* Standard */
                 color: #fff !important;
             }
-            .cv-section h2 {
+            .cv-section h2, .cv-section ul li::before {
                 color: #0288d1 !important;
             }
             .cv-section h2::after {
                 background: #0288d1 !important;
-            }
-            .cv-section ul li::before {
-                color: #0288d1 !important;
             }
             @page {
                 size: A4;
@@ -153,26 +162,21 @@
             }
         }
 
+        /* --- Responsive Styles --- */
         @media (max-width: 800px) {
             body {
                 align-items: flex-start;
             }
             .cv-container {
                 width: 100%;
-                min-height: 100vh;
                 height: auto;
+                min-height: 100vh;
                 padding: 10px;
                 box-shadow: none;
             }
-            .cv-header h1 {
-                font-size: 20px;
-            }
-            .cv-section h2 {
-                font-size: 16px;
-            }
-            .cv-section p, .cv-section ul {
-                font-size: 12px;
-            }
+            .cv-header h1 { font-size: 20px; }
+            .cv-section h2 { font-size: 16px; }
+            .cv-section p, .cv-section ul li { font-size: 13px; }
             .print-btn {
                 padding: 8px 15px;
                 font-size: 12px;
@@ -192,18 +196,22 @@
         </div>
 
         <div class="cv-section">
+            <h2>الملف الشخصي</h2>
+            <p>محامية طموحة وشغوفة بتحقيق العدالة، أمتلك أساسًا أكاديميًا متينًا في القانون. أسعى لتطبيق معرفتي ومهاراتي التحليلية للمساهمة في حل القضايا القانونية المعقدة، مع التزام كامل بأخلاقيات المهنة والتطوير المستمر.</p>
+        </div>
+
+        <div class="cv-section">
             <h2>المؤهل الدراسي</h2>
-            <p>بكلوريوس في القانون</p>
-            <p>سنة التخرج: 2025</p>
+            <p>بكالوريوس في القانون | سنة التخرج: 2025</p>
         </div>
 
         <div class="cv-section">
             <h2>المهارات</h2>
             <ul>
-                <li>تحليل القضايا القانونية وتقديم الحلول.</li>
-                <li>مهارات التواصل والتفاوض.</li>
-                <li>إدارة الوقت والتنظيم.</li>
-                <li>إجادة استخدام برامج Microsoft Office.</li>
+                <li>تحليل القضايا القانونية وتقديم استشارات دقيقة.</li>
+                <li>مهارات متقدمة في التواصل الفعال والتفاوض المقنع.</li>
+                <li>قدرة عالية على إدارة الوقت وتنظيم المهام والعمل تحت الضغط.</li>
+                <li>إجادة تامة لاستخدام برامج Microsoft Office وتطبيقاته.</li>
             </ul>
         </div>
 
@@ -211,7 +219,7 @@
             <h2>اللغات</h2>
             <ul>
                 <li>العربية: اللغة الأم</li>
-                <li>الإنجليزية: مستوى متقدم</li>
+                <li>الإنجليزية: مستوى متقدم (قراءة وكتابة ومحادثة)</li>
             </ul>
         </div>
     </div>
